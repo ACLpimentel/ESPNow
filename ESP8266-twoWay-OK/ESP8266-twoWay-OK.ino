@@ -4,7 +4,7 @@
 #include <espnow.h>
 
 // REPLACE WITH RECEIVER MAC Address
-uint8_t broadcastAddress[] = {0x8C, 0xAA, 0xB5, 0x8C, 0xC5, 0xB0};
+uint8_t broadcastAddress[] = {0x10, 0x52, 0x1C, 0x67, 0x98, 0x58};
 
 // Structure example to send data
 // Must match the receiver structure
@@ -44,6 +44,8 @@ void OnDataRecv(uint8_t * mac, uint8_t *incomingData, uint8_t len) {
   Serial.println(recvData.Bb);
   Serial.print("Bool: ");
   Serial.println(recvData.Cc);
+  Serial.print(" RSSI: ");
+  //Serial.println(esp_now_get_peer_rssi(*broadcastAddress)); 
 }
  
 void setup() {
